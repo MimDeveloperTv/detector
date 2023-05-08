@@ -17,4 +17,15 @@ abstract class Detectors implements Detector
     {
         return app($service);
     }
+
+    public static function prepareValidInputData(array $inputArray)
+    {
+        $safeArray = [];
+        foreach ($inputArray as $input) {
+            if (!empty($input)) {
+                $safeArray[] = trim($input);
+            }
+        }
+        return $safeArray;
+    }
 }
