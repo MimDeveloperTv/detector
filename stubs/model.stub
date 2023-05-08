@@ -1,0 +1,13 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Foundation\Units\Model;
+use App\Foundation\Concerns\HasUlid;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class {{ class }} extends Model
+{
+    use HasFactory;
+    use HasUlid;
+}
