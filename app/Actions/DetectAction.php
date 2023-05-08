@@ -16,25 +16,13 @@ class DetectAction
     /**
      * @throws NotFoundException
      */
-    public function handle(DetectRequest $request): ProcessData
+    public function handle(DetectRequest $request)
     {
-        $qrcode = $request->input('qrcode');
-        $data = Cache::remember('qrcode:'.$qrcode, config('cache.ttl'), function () use ($qrcode) {
-            foreach (Detectors::SERVICES as $service) {
-                $isQrDetected = Detectors::make($service)->process($qrcode);
-
-                if ($isQrDetected) {
-                    return $isQrDetected;
-                }
-            }
-
-            return null;
-        });
-
-        if (! $data) {
-            throw new NotFoundException();
+        $input = $request->input('input');
+        foreach (Detectors::SERVICES as $service) {
+            return Detectors::make($service)->process($input);
         }
+        return 'empty';
 
-        return $data;
     }
 }

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\DetectorController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -10,3 +13,4 @@
 | Enjoy building your API!
 |
 */
+Route::post('detect', DetectorController::class);

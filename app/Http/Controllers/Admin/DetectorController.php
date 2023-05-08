@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\General;
+namespace App\Http\Controllers\Admin;
 
 use App\Actions\DetectAction;
 use App\Foundation\Units\Controller as BaseController;
 use App\Http\Requests\DetectRequest;
-use App\Http\Resources\General\DetectResource;
+use App\Http\Resources\Admin\DetectResource;
 
-class QrDetectorController extends BaseController
+class DetectorController extends BaseController
 {
     /**
      * @throws \App\Exceptions\NotFoundException

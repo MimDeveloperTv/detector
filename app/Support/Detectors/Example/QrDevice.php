@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Support\Detectors;
+namespace App\Support\Detectors\Example;
 
 use App\Data\ProcessData;
+use App\Support\Detectors\Detectors;
 use Illuminate\Support\Str;
+use function App\Support\Detectors\str_starts_with;
 
 class QrDevice extends Detectors
 {

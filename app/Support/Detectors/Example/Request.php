@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Support\Detectors;
+namespace App\Support\Detectors\Example;
 
 use App\Data\ProcessData;
+use App\Support\Detectors\Detectors;
 use Illuminate\Support\Str;
 
 class Request extends Detectors

@@ -9,20 +9,10 @@ use Illuminate\Foundation\Http\FormRequest;
  **/
 class DetectRequest extends FormRequest
 {
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            'qrcode' => 'required',
+            'input' => 'required',
         ];
-    }
-
-    protected function prepareForValidation()
-    {
-        $this->merge(['user_id' => $this->header('X-User-Id')]);
     }
 }

@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\General\QrDetectorController;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | General Routes
@@ -14,4 +11,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('detect', QrDetectorController::class);
+

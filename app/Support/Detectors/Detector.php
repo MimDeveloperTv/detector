@@ -6,5 +6,5 @@ use App\Data\ProcessData;
 
 interface Detector
 {
-    public function process(string $qrcode): ?ProcessData;
+    public function process(string $input);
 }

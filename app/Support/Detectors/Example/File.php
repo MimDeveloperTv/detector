@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Support\Detectors;
+namespace App\Support\Detectors\Example;
 
 use App\Data\ProcessData;
+use App\Support\Detectors\Detectors;
 use Illuminate\Support\Str;
 
-class Gateway extends Detectors
+class File extends Detectors
 {
-    public const NAME = 'GATEWAY';
+    public const NAME = 'FILE';
     public const TYPE = 'URL';
 
     public function process(string $qrcode): ?ProcessData
@@ -15,11 +16,12 @@ class Gateway extends Detectors
         $isUrl = filter_var($qrcode, FILTER_VALIDATE_URL);
         if ($isUrl && (Str::contains($qrcode, 'http://idpay.ir/') || Str::contains($qrcode, 'https://idpay.ir/'))) {
             $endQrCode = $this->extractEndUrl(2, $qrcode);
-            if (is_null($endQrCode)) {
+            if ($endQrCode == 'file') {
                 return ProcessData::make(
                     self::TYPE,
                     self::NAME,
                     [
+                        'id' => $this->extractEndUrl(3, $qrcode) != null ? (string) $this->extractEndUrl(3, $qrcode) : null,
                         'gateway' => $this->extractEndUrl(1, $qrcode),
                         'url' => $qrcode,
                     ]
